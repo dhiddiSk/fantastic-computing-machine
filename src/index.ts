@@ -13,11 +13,17 @@ console.log(uuidv4()); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 // console.log(uuidv4()); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
  
 
-const form : HTMLFormElement|null = document.querySelector<HTMLFormElement>("#inputTodo");
-const submitButton : HTMLElement|null = document.querySelector<HTMLElement>("#submit");
+const userInput : HTMLInputElement|null = document.querySelector<HTMLInputElement>("#inputTodo");
+const submitButtonForm : HTMLElement|null = document.querySelector<HTMLElement>("#new-task-form");
 const list : HTMLElement|null = document.querySelector<HTMLUListElement>("#listOfTodos");
 
-submitButton?.addEventListener("submit", e => {
+submitButtonForm?.addEventListener("submit", e => {
     e.preventDefault();
+    console.log("user clicked.")
+    if (userInput?.value == "") return
+    else{
+        const userInputTodo: string | undefined = userInput?.value;
+        console.log(userInputTodo);
+    }
     
 })
