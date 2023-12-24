@@ -17,13 +17,26 @@ const userInput : HTMLInputElement|null = document.querySelector<HTMLInputElemen
 const submitButtonForm : HTMLElement|null = document.querySelector<HTMLElement>("#new-task-form");
 const list : HTMLElement|null = document.querySelector<HTMLUListElement>("#listOfTodos");
 
+type todoInfo = {
+    uuid: string,
+    taskName: string
+}
+
 submitButtonForm?.addEventListener("submit", e => {
     e.preventDefault();
-    console.log("user clicked.")
-    if (userInput?.value == "") return
-    else{
-        const userInputTodo: string | undefined = userInput?.value;
-        console.log(userInputTodo);
+    console.log("user clicked.");
+    if(userInput?.value == "" || userInput?.value == null) return;
+
+
+    const task: todoInfo = {
+        uuid: uuidv4(),
+        taskName: userInput.value
     }
-    
+
+    saveTheTask(task);
 })
+
+function saveTheTask(task: todoInfo) {
+    
+}
+
