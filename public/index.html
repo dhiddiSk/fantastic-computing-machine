@@ -7,14 +7,11 @@
     <script src="dist/index.js" type ="module"></script>
 </head>
 <body>
-
     <h2>Todo list</h2>
     <ul id="listOfTodos"></ul>
-
-    <form action="/submit" method="post">
-        <input type="text" id="Todo" name="Todo" required>
-        <button type="submit">Submit</button>
+    <form action="/submit" method="post" id="new-task-form">
+        <input type="text" id="inputTodo" name="Todo" required>
+        <button type="submit" id="submitButton">Submit</button>
     </form>
-
 </body>
 </html>
