@@ -12,3 +12,8 @@
   width: 540px;
   height: 540px;
 }
+
+#form{
+  position: static;
+  width: 1000px;
+}
