@@ -33,10 +33,16 @@ submitButtonForm?.addEventListener("submit", e => {
         taskName: userInput.value
     }
 
-    saveTheTask(task);
+    addListItemToUI(task);
+    userInput.value="";
 })
 
-function saveTheTask(task: todoInfo) {
-    
-}
 
+function addListItemToUI(task:todoInfo){
+    const item = document.createElement("li");
+    const label = document.createElement("label");
+    label.append(task.taskName);
+    item.append(label);
+    list?.append(item);
+
+}
