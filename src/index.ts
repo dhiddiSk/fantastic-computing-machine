@@ -1,25 +1,13 @@
-/**
- * This file is just a silly example to show everything working in the browser.
- * When you're ready to start on your site, clear the file. Happy hacking!
- **/
 import { v4 as uuidv4 } from 'uuid';
-console.log(uuidv4()); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
  
-/**
- * This file is just a silly example to show everything working in the browser.
- * When you're ready to start on your site, clear the file. Happy hacking!
- **/
-// import { v4 as uuidv4 } from 'uuid';
-// console.log(uuidv4()); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
- 
-
 const userInput : HTMLInputElement|null = document.querySelector<HTMLInputElement>("#inputTodo");
 const submitButtonForm : HTMLElement|null = document.querySelector<HTMLElement>("#new-task-form");
 const list : HTMLElement|null = document.querySelector<HTMLUListElement>("#listOfTodos");
 
 type todoInfo = {
     uuid: string,
-    taskName: string
+    taskName: string,
+    checked?: boolean
 }
 
 submitButtonForm?.addEventListener("submit", e => {
@@ -41,8 +29,12 @@ submitButtonForm?.addEventListener("submit", e => {
 function addListItemToUI(task:todoInfo){
     const item = document.createElement("li");
     const label = document.createElement("label");
-    label.append(task.taskName);
+    const checkBox = document.createElement("input");
+    checkBox.addEventListener("change", () => {
+        task.checked = checkBox.checked;
+      })
+    checkBox.type = "checkbox";
+    label.append(checkBox,task.taskName);
     item.append(label);
     list?.append(item);
-
 }
